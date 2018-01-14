@@ -26,40 +26,36 @@ always @ (*) begin
 
 	case (ALUOp)
 		`ADD:		
-					begin
-					result = $signed(data1) + $signed(data2);
-					overflow = (data1[31] && data2[31] && ~result[31]) || (~data1[31] && ~data2[31] && result[31]);
-					end
+				begin
+				result = $signed(data1) + $signed(data2);
+				overflow = (data1[31] && data2[31] && ~result[31]) || (~data1[31] && ~data2[31] && result[31]);
+				end
 					
-		`ADDU:	begin
-					result = $unsigned(data1) + $unsigned(data2);
-					end
+		`ADDU:		begin
+				result = $unsigned(data1) + $unsigned(data2);
+				end
 		`AND:		result = data1 & data2;
 		`NOR:		result = ~(data1 | data2);
 		`OR:		result = data1 | data2;
 		`SLL:		result = data2 << shamt;
 		`SRL:		result = data2 >> shamt;
-		`SLT: 	result = (data1 < data2);
-		`SLTU:	result = (data1 < data2);
+		`SLT: 		result = (data1 < data2);
+		`SLTU:		result = (data1 < data2);
 		
 		`SUB:		begin
-					result = $signed(data1) - $signed(data2);
-					overflow = (data1[31] && data2[31] && ~result[31]) || (~data1[31] && ~data2[31] && result[31]);
-					end
-		`SUBU:	result = $unsigned(data1) - $unsigned(data2);
+				result = $signed(data1) - $signed(data2);
+				overflow = (data1[31] && data2[31] && ~result[31]) || (~data1[31] && ~data2[31] && result[31]);
+				end
+		`SUBU:		result = $unsigned(data1) - $unsigned(data2);
 		`SRA:		result = data2 >>> shamt;
 		
 		`LUI:		begin
-					result[31:16] = data1[15:0];
-					result[15:0] = 16'b0000000000000000;
-					end
+				result[31:16] = data1[15:0];
+				result[15:0] = 16'b0000000000000000;
+				end
 	
 	endcase
 	zero = (result == 32'b0) && (~overflow);
 end
-
-
-
-
 
 endmodule
