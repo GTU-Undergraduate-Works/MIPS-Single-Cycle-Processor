@@ -7,7 +7,7 @@ module control_unit
 	
 	always @ (*) begin
 	
-		// R-type tamam
+		// R-type 
 		if (opcode == 6'b000000) begin
 				jump = 1'b0;
 				branch = 1'b0;
@@ -74,7 +74,7 @@ module control_unit
 			bneq = 1'b0;
 			jal = 1'b0;
 		end
-		// jal tamam (J-type)
+		// jal (J-type)
 		else if (opcode == 6'b000011) begin
 			jump = 1'b1;
 			branch = 1'b0;
@@ -91,7 +91,7 @@ module control_unit
 		
 		// I-Type Instructions
 		
-		// addi tamam
+		// addi 
 		else if (opcode == 6'b001000) begin
 			jump = 1'b0;
 			branch = 1'b0;
@@ -105,7 +105,7 @@ module control_unit
 			bneq = 1'b0;
 			jal = 1'b0;
 		end
-		// addiu tamam
+		// addiu 
 		else if (opcode == 6'b001001) begin
 			jump = 1'b0;
 			branch = 1'b0;
@@ -119,7 +119,7 @@ module control_unit
 			bneq = 1'b0;
 			jal = 1'b0;
 		end
-		// andi tamam
+		// andi 
 		else if (opcode == 6'b001100) begin
 			jump = 1'b0;
 			branch = 1'b0;
@@ -149,7 +149,7 @@ module control_unit
 			jal = 1'b0;
 			
 		end
-		// bneq tamam
+		// bneq 
 		else if (opcode == 6'b000101) begin
 			jump = 1'b0;
 			branch = 1'b1;
@@ -206,7 +206,7 @@ module control_unit
 			jal = 1'b0;
 		end
 		
-		// ori tamam
+		// ori 
 		else if (opcode == 6'b001101) begin
 			jump = 1'b0;
 			branch = 1'b0;
@@ -220,7 +220,7 @@ module control_unit
 			bneq = 1'b0;
 			jal = 1'b0;
 		end
-		// slti tamam
+		// slti 
 		else if (opcode == 6'b001010) begin
 			jump = 1'b0;
 			branch = 1'b0;
@@ -234,7 +234,7 @@ module control_unit
 			bneq = 1'b0;
 			jal = 1'b0;
 		end
-		// sltui tamam
+		// sltui 
 		else if (opcode == 6'b001011) begin
 			jump = 1'b0;
 			branch = 1'b0;
